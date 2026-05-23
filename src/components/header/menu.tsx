@@ -32,7 +32,7 @@ export function Menu() {
                 >
                 </button>
               )
-            : <button type="button" className="btn i-si:more-muted-horiz-circle-duotone" />
+            : <button type="button" className="air-menu-btn i-ph:list-duotone" />
         }
       </span>
       {shown && (
@@ -41,7 +41,7 @@ export function Menu() {
             id="dropdown-menu"
             className={$([
               "w-200px",
-              "bg-primary backdrop-blur-5 bg-op-70! rounded-lg shadow-xl",
+              "bg-white rounded-2xl shadow-xl border border-[var(--air-hairline-soft)]",
             ])}
             initial={{
               scale: 0.9,
@@ -50,7 +50,7 @@ export function Menu() {
               scale: 1,
             }}
           >
-            <ol className="bg-base bg-op-70! backdrop-blur-md p-2 rounded-lg color-base text-base">
+            <ol className="bg-white p-2 rounded-2xl color-base text-base">
               {enableLogin && (loggedIn
                 ? (
                     <li onClick={logout}>
@@ -61,32 +61,10 @@ export function Menu() {
                 : (
                     <li onClick={login}>
                       <span className="i-ph:sign-in-duotone inline-block" />
-                      <span>Github 账号登录</span>
+                      <span>账号登录</span>
                     </li>
                   ))}
               {/* <ThemeToggle /> */}
-              <li onClick={() => window.open(Homepage)} className="cursor-pointer [&_*]:cursor-pointer transition-all">
-                <span className="i-ph:github-logo-duotone inline-block" />
-                <span>Star on Github </span>
-              </li>
-              <li className="flex gap-2 items-center">
-                <a
-                  href="https://github.com/ourongxing/newsnow"
-                >
-                  <img
-                    alt="GitHub stars badge"
-                    src="https://img.shields.io/github/stars/ourongxing/newsnow?logo=github&style=flat&labelColor=%235e3c40&color=%23614447"
-                  />
-                </a>
-                <a
-                  href="https://github.com/ourongxing/newsnow/fork"
-                >
-                  <img
-                    alt="GitHub forks badge"
-                    src="https://img.shields.io/github/forks/ourongxing/newsnow?logo=github&style=flat&labelColor=%235e3c40&color=%23614447"
-                  />
-                </a>
-              </li>
             </ol>
           </motion.div>
         </div>

@@ -13,14 +13,7 @@ export function usePWA() {
     await delay(1000)
     if (localStorage.getItem("updated")) {
       localStorage.removeItem("updated")
-      toaster("更新成功，赶快体验吧", {
-        action: {
-          label: "查看更新",
-          onClick: () => {
-            window.open(`${Homepage}/releases/tag/v${Version}`)
-          },
-        },
-      })
+toaster("更新成功，赶快体验吧")
     } else if (needRefresh) {
       if (!navigator) return
 

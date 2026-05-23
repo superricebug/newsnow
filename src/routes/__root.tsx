@@ -34,25 +34,25 @@ function RootComponent() {
       <GlobalOverlayScrollbar
         className={$([
           !isMobile && "px-4",
-          "h-full overflow-x-auto",
-          "md:(px-10)",
-          "lg:(px-24)",
+          "air-shell h-full overflow-x-auto",
+          "md:(px-8)",
+          "lg:(px-16)",
         ])}
       >
         <header
           className={$([
-            "grid items-center py-4 px-5",
-            "lg:(py-6)",
+            "air-header grid items-center py-3 px-3",
+            "md:(px-5)",
             "sticky top-0 z-10 backdrop-blur-md",
           ])}
           style={{
-            gridTemplateColumns: "50px auto 50px",
+            gridTemplateColumns: "minmax(150px, 1fr) auto minmax(120px, 1fr)",
           }}
         >
           <Header />
         </header>
         <main className={$([
-          "mt-2",
+          "mt-6",
           "min-h-[calc(100vh-180px)]",
           "md:(min-h-[calc(100vh-175px)])",
           "lg:(min-h-[calc(100vh-194px)])",
@@ -60,7 +60,7 @@ function RootComponent() {
         >
           <Outlet />
         </main>
-        <footer className="py-6 flex flex-col items-center justify-center text-sm text-neutral-500 font-mono">
+        <footer className="air-footer py-6 flex flex-col items-center justify-center gap-1 text-sm">
           <Footer />
         </footer>
       </GlobalOverlayScrollbar>

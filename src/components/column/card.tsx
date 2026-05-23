@@ -33,11 +33,11 @@ export const CardWrapper = forwardRef<HTMLElement, ItemsProps>(({ id, isDragging
     <div
       ref={ref}
       className={$(
-        "flex flex-col h-500px rounded-2xl p-4 cursor-default",
+        "air-card-shell flex flex-col h-500px p-4 cursor-default",
         // "backdrop-blur-5",
         "transition-opacity-300",
         isDragging && "op-50",
-        `bg-${sources[id].color}-500 dark:bg-${sources[id].color} bg-op-40!`,
+        "",
       )}
       style={{
         transformOrigin: "50% 50%",
@@ -109,7 +109,7 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
       <div className={$("flex justify-between mx-2 mt-0 mb-2 items-center")}>
         <div className="flex gap-2 items-center">
           <a
-            className={$("w-8 h-8 rounded-full bg-cover")}
+            className={0 0"air-source-icon w-8 h-8 rounded-full bg-cover")}
             target="_blank"
             href={sources[id].home}
             title={sources[id].desc}
@@ -120,32 +120,32 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
           <span className="flex flex-col">
             <span className="flex items-center gap-2">
               <span
-                className="text-xl font-bold"
+                className="air-title"
                 title={sources[id].desc}
               >
                 {sources[id].name}
               </span>
-              {sources[id]?.title && <span className={$("text-sm", `color-${sources[id].color} bg-base op-80 bg-op-50! px-1 rounded`)}>{sources[id].title}</span>}
+              {sources[id]?.title && <span className="air-tag">{sources[id].title}</span>}
             </span>
             <span className="text-xs op-70"><UpdatedTime isError={isError} updatedTime={data?.updatedTime} /></span>
           </span>
         </div>
-        <div className={$("flex gap-2 text-lg", `color-${sources[id].color}`)}>
+        <div className="flex gap-2 text-lg">
           <button
             type="button"
-            className={$("btn i-ph:arrow-counter-clockwise-duotone", isFetching && "animate-spin i-ph:circle-dashed-duotone")}
+            className={$("air-action-btn i-ph:arrow-counter-clockwise-duotone", isFetching && "animate-spin i-ph:circle-dashed-duotone")}
             onClick={() => refresh(id)}
           />
           <button
             type="button"
-            className={$("btn", isFocused ? "i-ph:star-fill" : "i-ph:star-duotone")}
+            className={$("air-action-btn", isFocused ? "i-ph:star-fill" : "i-ph:star-duotone")}
             onClick={toggleFocus}
           />
           {/* firefox cannot drag a button */}
           {setHandleRef && (
             <div
               ref={setHandleRef}
-              className={$("btn", "i-ph:dots-six-vertical-duotone", "cursor-grab")}
+              className={$("air-action-btn", "i-ph:dots-six-vertical-duotone", "cursor-grab")}
             />
           )}
         </div>
@@ -153,9 +153,8 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
 
       <OverlayScrollbar
         className={$([
-          "h-full p-2 overflow-y-auto rounded-2xl bg-base bg-op-70!",
+          "air-card-list h-full p-2 overflow-y-auto",
           isFetching && `animate-pulse`,
-          `sprinkle-${sources[id].color}`,
         ])}
         options={{
           overflow: { x: "hidden" },
@@ -238,10 +237,10 @@ function NewsListHot({ items }: { items: NewsItem[] }) {
           title={item.extra?.hover}
           className={$(
             "flex gap-2 items-center items-stretch relative cursor-pointer [&_*]:cursor-pointer transition-all",
-            "hover:bg-neutral-400/10 rounded-md pr-1 visited:(text-neutral-400)",
+            "air-news-item pr-1 visited:(text-neutral-400)",
           )}
         >
-          <span className={$("bg-neutral-400/10 min-w-6 flex justify-center items-center rounded-md text-sm")}>
+          <span className="air-rank flex justify-center items-center text-sm">
             {i + 1}
           </span>
           {!!item.extra?.diff && <DiffNumber diff={item.extra.diff} />}
@@ -276,7 +275,7 @@ function NewsListTimeLine({ items }: { items: NewsItem[] }) {
           </span>
           <a
             className={$(
-              "ml-2 px-1 hover:bg-neutral-400/10 rounded-md visited:(text-neutral-400/80)",
+              "air-news-item ml-2 visited:(text-neutral-400/80)",
               "cursor-pointer [&_*]:cursor-pointer transition-all",
             )}
             href={width < 768 ? item.mobileUrl || item.url : item.url}

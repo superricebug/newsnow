@@ -36,7 +36,7 @@ export function Dnd() {
         <motion.ol
           className={isMobile
             ? "flex px-2 gap-6 pb-4 scroll-smooth"
-            : "grid w-full gap-6"}
+            : "grid w-full gap-6 pb-2"}
           ref={parent}
           style={isMobile
             ? {
@@ -132,25 +132,25 @@ function DndWrapper({ items, setItems, isSingleColumn, children }: PropsWithChil
 function CardOverlay({ id }: { id: SourceID }) {
   return (
     <div className={$(
-      "flex flex-col p-4 backdrop-blur-5",
-      `bg-${sources[id].color}-500 dark:bg-${sources[id].color} bg-op-40!`,
+      "air-card-shell flex flex-col p-4 backdrop-blur-5",
+      "",
       !isiOS() && "rounded-2xl",
     )}
     >
       <div className={$("flex justify-between mx-2 items-center")}>
         <div className="flex gap-2 items-center">
           <div
-            className={$("w-8 h-8 rounded-full bg-cover")}
+            className={$("air-source-icon w-8 h-8 rounded-full bg-cover")}
             style={{
               backgroundImage: `url(/icons/${id.split("-")[0]}.png)`,
             }}
           />
           <span className="flex flex-col">
             <span className="flex items-center gap-2">
-              <span className="text-xl font-bold">
+              <span className="air-title">
                 {sources[id].name}
               </span>
-              {sources[id]?.title && <span className={$("text-sm", `color-${sources[id].color} bg-base op-80 bg-op-50! px-1 rounded`)}>{sources[id].title}</span>}
+              {sources[id]?.title && <span className="air-tag">{sources[id].title}</span>}
             </span>
             <span className="text-xs op-70">拖拽中</span>
           </span>

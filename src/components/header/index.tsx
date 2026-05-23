@@ -11,15 +11,9 @@ function GoTop() {
     <button
       type="button"
       title="Go To Top"
-      className={$("i-ph:arrow-fat-up-duotone", ok ? "op-50 btn" : "op-0")}
+      className={$("i-ph:arrow-fat-up-duotone air-action-btn", ok ? "op-70" : "op-0")}
       onClick={goToTop}
     />
-  )
-}
-
-function Github() {
-  return (
-    <button type="button" title="Github" className="i-ph:github-logo-duotone btn" onClick={() => window.open(Homepage)} />
   )
 }
 
@@ -39,7 +33,7 @@ function Refresh() {
     <button
       type="button"
       title="Refresh"
-      className={$("i-ph:arrow-counter-clockwise-duotone btn", isFetching && "animate-spin i-ph:circle-dashed-duotone")}
+      className={$("i-ph:arrow-counter-clockwise-duotone air-action-btn", isFetching && "animate-spin i-ph:circle-dashed-duotone")}
       onClick={refreshAll}
     />
   )
@@ -50,28 +44,27 @@ export function Header() {
     <>
       <span className="flex justify-self-start">
         <Link to="/" className="flex gap-2 items-center">
-          <div className="h-10 w-10 bg-cover" title="logo" style={{ backgroundImage: "url(/icon.svg)" }} />
-          <span className="text-2xl font-brand line-height-none!">
+          <div className="h-10 w-10 bg-cover air-logo-mark" title="logo" style={{ backgroundImage: "url(/icon.svg)" }} />
+          <span className="air-brand-text line-height-none!">
             <p>News</p>
             <p className="mt--1">
-              <span className="color-primary-6">N</span>
+              <span style={{ color: "var(--air-primary)" }}>N</span>
               <span>ow</span>
             </p>
           </span>
         </Link>
-        <a target="_blank" href={`${Homepage}/releases/tag/v${Version}`} className="btn text-sm ml-1 font-mono">
+        <span className="air-version-pill text-sm ml-2">
           {`v${Version}`}
-        </a>
+        </span>
       </span>
       <span className="justify-self-center">
         <span className="hidden md:(inline-block)">
           <NavBar />
         </span>
       </span>
-      <span className="justify-self-end flex gap-2 items-center text-xl text-primary-600 dark:text-primary">
+      <span className="justify-self-end flex gap-2 items-center text-xl">
         <GoTop />
         <Refresh />
-        <Github />
         <Menu />
       </span>
     </>

@@ -7,15 +7,15 @@ export function NavBar() {
   const { toggle } = useSearchBar()
   return (
     <span className={$([
-      "flex p-3 rounded-2xl bg-primary/1 text-sm",
-      "shadow shadow-primary/20 hover:shadow-primary/50 transition-shadow-500",
+      "air-nav-pill flex items-center gap-1 text-sm",
+      "transition-all duration-300",
     ])}
     >
       <button
         type="button"
         onClick={() => toggle(true)}
         className={$(
-          "px-2 hover:(bg-primary/10 rounded-md) op-70 dark:op-90",
+          "air-nav-item air-nav-more",
           "cursor-pointer transition-all",
         )}
       >
@@ -27,8 +27,8 @@ export function NavBar() {
           to="/c/$column"
           params={{ column: columnId }}
           className={$(
-            "px-2 hover:(bg-primary/10 rounded-md) cursor-pointer transition-all",
-            currentId === columnId ? "color-primary font-bold" : "op-70 dark:op-90",
+            "air-nav-item inline-flex items-center cursor-pointer transition-all",
+            currentId === columnId ? "air-nav-item-active" : "",
           )}
         >
           {metadata[columnId].name}
