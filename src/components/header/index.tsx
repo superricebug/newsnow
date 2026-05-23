@@ -45,12 +45,8 @@ export function Header() {
       <span className="flex justify-self-start">
         <Link to="/" className="flex gap-2 items-center">
           <div className="h-10 w-10 bg-cover air-logo-mark" title="logo" style={{ backgroundImage: "url(/icon.svg)" }} />
-          <span className="air-brand-text line-height-none!">
-            <p>News</p>
-            <p className="mt--1">
-              <span style={{ color: "var(--air-primary)" }}>N</span>
-              <span>ow</span>
-            </p>
+          <span className="air-brand-text line-height-none! air-brand-godeyes">
+            <p>Godeyes</p>
           </span>
         </Link>
         <span className="air-version-pill text-sm ml-2">
