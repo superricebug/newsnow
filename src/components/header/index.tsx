@@ -50,7 +50,7 @@ export function Header() {
           </span>
         </Link>
         <span className="air-version-pill text-sm ml-2">
-          {`v${Version}`}
+          {`V${Version}`}
         </span>
       </span>
       <span className="justify-self-center">
